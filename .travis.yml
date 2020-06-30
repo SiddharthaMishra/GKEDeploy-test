@@ -16,6 +16,7 @@ script:
 - echo "$GCLOUD_SERVICE_KEY_STG" | base64 --decode > ${HOME}/gcloud-service-key.json
 - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
 - gcloud components install kubectl
+- echo $GKE_cluster_name $GKE_zone $GKE_project_id
 - gcloud container clusters get-credentials $GKE_cluster_name --zone $GKE_zone --project $GKE_project_id
 - kubectl get nodes
 
