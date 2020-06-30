@@ -1,0 +1,11 @@
+env:
+GKE_cluster_name=my-first-cluster-1
+GKE_zone=us-central1-c
+GKE_project_id=k8ss-281906
+script:
+- echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.json
+- gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+- gcloud components install kubectl
+- gcloud container clusters get-credentials $GKE_cluster_name --zone $GKE_zone --project $GKE_project_id
+- kubectl get nodes
+
