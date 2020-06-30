@@ -1,7 +1,7 @@
 env:
-- GKE_cluster_name="my-first-cluster-1"
-- GKE_zone="us-central1-c"
-- GKE_project_id="k8ss-281906"
+GKE_cluster_name="my-first-cluster-1"
+GKE_zone="us-central1-c"
+GKE_project_id="k8ss-281906"
 
 cache:
 - directories:
