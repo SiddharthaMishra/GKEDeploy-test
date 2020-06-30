@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quizapp
+  labels:
+    app: quizapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quizapp
+  template:
+    metadata:
+      labels:
+        app: quizapp
+    spec:
+      containers:
+        - name: quizapp
+          image: gcr.io/$PROJECT_NAME/quizapp:latest
+
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: quizapp
+  ports:
+  - port: 80
+	targetPort: 8080
+  selector:
+    app: quizapp
