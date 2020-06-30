@@ -13,4 +13,4 @@ script:
 - gcloud components install kubectl
 - gcloud container clusters get-credentials $GKE_cluster_name --zone $GKE_zone --project $GKE_project_id
 - kubectl get nodes
-
+- docker build -t quizapp .
