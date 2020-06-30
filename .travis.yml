@@ -3,11 +3,9 @@ env:
 - GKE_zone=us-central1-c
 - GKE_project_id=k8ss-281906
 
-cache:
- directories:
- - "$HOME/google-cloud-sdk/"
 
 before_script:
+- rm -rf ${HOME}/google-cloud-sdk || true
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
     curl https://sdk.cloud.google.com | bash;
   fi
